@@ -1,40 +1,24 @@
-# FURP Project Repository
+# FURP 2026 — Deep RL for EVRP-TW
 
 > **Faculty Undergraduate Research Practice (FURP)**
 > Undergraduate Research Group · Faculty of Science and Engineering · University of Nottingham Ningbo China
 
-This is your project home for the FURP programme. **Fork this template**, rename your repo, fill in the content each week, and share it with us (or make it public) so we can follow your progress and review your weekly work.
-
 ---
 
-## Getting started (do this in Week 1)
-
-1. **Fork / use this template** to create your own repository.
-2. **Rename your repo** following the naming convention:
-   ```
-   FURP-2025/YourName-ProjectTag
-   # e.g. furp-2025/Jason-ROSBootcamp
-   ```
-3. **Give us access:** either make the repo **public**, or **share it** with the research group accounts (ask your project lead for the usernames to add as collaborators).
-4. **Fill in this README** — replace the placeholders in the *Project Info* section below.
-5. **Start your weekly log** in [`docs/00_weekly.md`](docs/00_weekly.md).
-
----
-
-## Project Info — *fill this in*
+## Project Info
 
 | Field | Your entry |
 |---|---|
-| Student name(s) | _e.g. Jason Zhang_ |
-| Project title | _..._ |
-| Project tag | _e.g. ROSBootcamp_ |
+| Student name(s) | Yuchi Dai |
+| Project title | Deep RL for Electric Vehicle Routing with Time Windows |
+| Project tag | EVRP-TW |
 | Track | Research |
-| Supervising faculty | _..._ |
-| Project lead | _..._ |
-| Team or individual | _..._ |
-| Cited paper being replicated | _title + link/DOI_ |
+| Supervising faculty | _(TBD)_ |
+| Project lead | _(TBD)_ |
+| Team or individual | Individual |
+| Cited paper being replicated | Lin, Ghaddar & Nathwani (2021). Deep Reinforcement Learning for Electric Vehicle Routing Problem with Time Windows. *IEEE TITS*. DOI: [10.1109/TITS.2021.3105232](https://doi.org/10.1109/TITS.2021.3105232) |
 
-**One-line summary:** _What is your project about? (1–2 sentences)_
+**One-line summary:** Reproducing and extending a deep reinforcement learning approach to the Electric Vehicle Routing Problem with Time Windows (EVRP-TW), with at least 10% innovation on top of the replicated baseline.
 
 ---
 
@@ -97,7 +81,7 @@ Any **leave of absence** or **withdrawal** must be notified to us **by email** �
 
 ## Quick checklist
 
-- [ ] Forked the template and renamed the repo (`FURP-2025/YourName-ProjectTag`)
+- [x] Forked the template and renamed the repo (`FURP-2026/Yuchi-Dai-EVRP-TW`)
 - [ ] Made the repo public **or** shared it with the research group
 - [ ] Filled in the *Project Info* table above
 - [ ] Started `docs/00_weekly.md`
