@@ -22,7 +22,19 @@
 
 ---
 
-## Repository structure
+## Start Here
+
+If you are reading this repository for the first time:
+
+1. Read this `README.md` for the project goal and mandatory FURP requirements.
+2. Read [`docs/00_weekly.md`](docs/00_weekly.md) for the latest progress.
+3. Read [`labs/README.md`](labs/README.md) before working with lab tasks or cloned baseline repositories.
+4. Read [`src/README.md`](src/README.md) before running or extending the main EVRP-TW code.
+5. For weekly lab work, keep exploratory code under `labs/`. Do not write into `src/` unless the change is intended for the final EVRP-TW reproduction implementation.
+
+---
+
+## Mandatory structure
 
 This structure is **mandatory** — please keep it intact.
 
@@ -38,6 +50,53 @@ FURP_Showcase.pdf         ← your poster / presentation PDF, in the repo root
 - **`docs/meeting_notes/`** — one file per meeting with key takeaways and action items.
 - **`src/`** — all your code, scripts, notebooks, and experiment materials.
 - **`FURP_Showcase.pdf`** — your final poster, placed in the **repo root** with this exact filename.
+
+---
+
+## Current repository map
+
+The repository now contains both the mandatory FURP structure and additional research folders used for baseline recreation and EVRP-TW development.
+
+| Path | Purpose |
+|---|---|
+| [`docs/`](docs/) | Research logs, reading notes, meeting notes, experiment reports, and result summaries |
+| [`docs/00_weekly.md`](docs/00_weekly.md) | Weekly progress log; update every week |
+| [`docs/week02_method_comparison.md`](docs/week02_method_comparison.md) | Current Week 2 comparison of POMO and GA baselines |
+| [`src/`](src/) | Main project code for EVRP-TW environment, models, training, and evaluation |
+| [`src/envs/`](src/envs/) | Custom EVRP-TW environment implementation |
+| [`src/models/`](src/models/) | Custom EVRP-TW embeddings and model components |
+| [`src/data/`](src/data/) | Dataset generators and loaders |
+| [`labs/`](labs/) | Weekly lab tasks and cloned external baseline repositories |
+| [`labs/README.md`](labs/README.md) | Guide for using `labs/` and recording experiment reports in `docs/` |
+| [`labs/tasks/`](labs/tasks/) | Weekly task briefs, including Week 2 baseline recreation |
+| [`labs/week2/pomo/`](labs/week2/pomo/) | Cloned POMO baseline repository |
+| [`labs/week2/ga_evrptw/`](labs/week2/ga_evrptw/) | Cloned GA-VRPTW baseline repository |
+| [`data/`](data/) | Benchmark datasets, including Schneider EVRPTW instances |
+| [`resource/`](resource/) | Papers and BibTeX references |
+| [`results/`](results/) | Generated experiment summaries and outputs |
+| [`checklists/`](checklists/) | Milestone checklists |
+| [`poster/`](poster/) | Poster source materials before final export |
+| [`assets/`](assets/) | Images, diagrams, and other static assets |
+
+After completing an experiment, write the final summary in `docs/`, not only in terminal output or raw result files.
+
+---
+
+## Current progress snapshot
+
+Completed so far:
+
+- Environment setup and initial smoke tests for RL4CO and PyVRP.
+- Literature collection and reading notes for EVRP-TW, Attention Model, POMO, and related VRP methods.
+- Schneider EVRPTW benchmark instances placed under [`data/schneider_instances/`](data/schneider_instances/).
+- Week 2 baseline recreation completed for the original POMO repository on `TSP20`, `TSP100`, and `CVRP100`.
+- Week 2 GA-VRPTW baseline recreation completed on Solomon `R101` and `C204`.
+- Main EVRP-TW implementation started under [`src/`](src/), including custom environment, embeddings, training, and evaluation scripts.
+
+Next research direction:
+
+- Decide whether the first EVRP-TW extension should start from POMO-CVRP with added time-window / energy constraints, or GA-VRPTW with added battery constraints.
+- Continue reporting objective value, feasibility status, constraint violations, and runtime together.
 
 ---
 

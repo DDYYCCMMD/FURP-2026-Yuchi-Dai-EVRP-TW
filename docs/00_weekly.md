@@ -94,3 +94,48 @@
 - Reading notes: [`docs/reading_notes.md`](reading_notes.md)
 - Reference handbook: [`docs/reference_handbook.md`](reference_handbook.md)
 - Reading plan: [`docs/reading_plan.md`](reading_plan.md)
+
+---
+
+### Week 3 — 2026-06-30
+
+**Attended this week's meeting:** Yes *(assumed; update if needed)*
+
+**Progress this week**
+- Focused on `labs/tasks/week02_works.md`, covering both **Step 1: POMO approach** and **Step 2: GA approach**.
+- Cloned and inspected the original POMO repository in `labs/week2/pomo`, focusing on the updated Python implementation under `NEW_py_ver`.
+- Ran POMO test scripts using the provided checkpoints in CPU debug mode:
+- `POMO-TSP`, `TSP20`: NO-AUG score `3.8146`, AUG score `3.8139`, runtime `2.44 s`.
+- `POMO-TSP`, `TSP100`: NO-AUG score `7.8014`, AUG score `7.7858`, runtime `22.41 s`.
+- `POMO-CVRP`, `CVRP100`: NO-AUG score `15.6327`, AUG score `15.5858`, runtime `4.12 s`.
+- Read through the cloned `labs/week2/ga_evrptw` codebase and clarified the role of its main concepts: `individual` (chromosome / customer ordering), `route` (decoded vehicle routes), `instance` (benchmark data dict), fitness, population, crossover, mutation, and penalty-based time-window handling.
+- Confirmed that the reference GA solver targets **VRPTW**, not full EVRPTW: it does not yet model battery state or charging stations.
+- Ran the two provided GA baseline experiments successfully:
+- `sample_R101.py` on a 25-customer Solomon instance.
+- `sample_C204.py` on a 100-customer Solomon instance.
+- Recorded the main baseline outputs for Week 2 comparison:
+- `R101`: total cost `7170.6752`, `5` vehicles, runtime `0.37 s`.
+- `C204`: total cost `43059.6433`, `4` vehicles, runtime `14.06 s`.
+- Created a Week 2 baseline comparison document in `docs/week02_method_comparison.md`, summarising POMO and GA results, constraint coverage, and limitations.
+
+**Challenges & blockers**
+- POMO-TSP and POMO-CVRP are useful learning-based baselines, but the original implementation does not include time windows, battery state, or charging stations.
+- The cloned GA repository is a **VRPTW** solver only, so it cannot be used as an EVRPTW baseline without further modification.
+- Time windows are handled mainly through waiting and delay penalties, rather than a stricter EV feasibility mechanism with battery and charging logic.
+- The result values from POMO and GA are not directly comparable because they use different problem definitions and objective formulations.
+
+**Next steps**
+- Use the Week 2 comparison table to explain the difference between learning-based POMO and heuristic GA baselines.
+- Decide whether to implement a minimal `battery` constraint next, likely by modifying `ind2route()` and/or `eval_vrptw()`.
+- Identify which baseline is more suitable as the first extension target toward EVRP-TW: POMO-CVRP with added TW/E constraints, or GA-VRPTW with added battery constraints.
+- Continue reporting objective value, feasibility status, constraint violations, and runtime together.
+
+**Hours spent (optional):** ~9h
+
+**Links (optional):**
+- Week 2 task brief: [`labs/tasks/week02_works.md`](../labs/tasks/week02_works.md)
+- Week 2 comparison: [`docs/week02_method_comparison.md`](week02_method_comparison.md)
+- POMO baseline code: [`labs/week2/pomo/NEW_py_ver`](../labs/week2/pomo/NEW_py_ver)
+- GA baseline code: [`labs/week2/ga_evrptw/gavrptw/core.py`](../labs/week2/ga_evrptw/gavrptw/core.py)
+- GA sample runs: [`labs/week2/ga_evrptw/sample_R101.py`](../labs/week2/ga_evrptw/sample_R101.py), [`labs/week2/ga_evrptw/sample_C204.py`](../labs/week2/ga_evrptw/sample_C204.py)
+- GA result logs: [`labs/week2/ga_evrptw/results/R101_uC8.0_iC60.0_wC0.5_dC1.5_iS25_pS80_cP0.85_mP0.01_nG100.csv`](../labs/week2/ga_evrptw/results/R101_uC8.0_iC60.0_wC0.5_dC1.5_iS25_pS80_cP0.85_mP0.01_nG100.csv), [`labs/week2/ga_evrptw/results/C204_uC8.0_iC100.0_wC1.0_dC1.5_iS100_pS400_cP0.85_mP0.02_nG300.csv`](../labs/week2/ga_evrptw/results/C204_uC8.0_iC100.0_wC1.0_dC1.5_iS100_pS400_cP0.85_mP0.02_nG300.csv)
