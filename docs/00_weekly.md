@@ -99,7 +99,7 @@
 
 ### Week 3 — 2026-06-30
 
-**Attended this week's meeting:** Yes *(assumed; update if needed)*
+**Attended this week's meeting:** Yes 
 
 **Progress this week**
 - Focused on `labs/tasks/week02_works.md`, covering both **Step 1: POMO approach** and **Step 2: GA approach**.
@@ -117,25 +117,43 @@
 - `R101`: total cost `7170.6752`, `5` vehicles, runtime `0.37 s`.
 - `C204`: total cost `43059.6433`, `4` vehicles, runtime `14.06 s`.
 - Created a Week 2 baseline comparison document in `docs/week02_method_comparison.md`, summarising POMO and GA results, constraint coverage, and limitations.
+- Chose `GA-VRPTW` as the Week 3 evaluation target and cloned a fresh copy into `labs/week3/py-ga-VRPTW`.
+- Added a reusable experiment entrypoint, [`labs/week3/py-ga-VRPTW/run_experiment.py`](../labs/week3/py-ga-VRPTW/run_experiment.py), so experiments could be launched from the command line without manually editing sample scripts.
+- Fixed the result-export workflow so generation-level CSV files are renamed with the random seed, preventing repeated trials from overwriting one another.
+- Designed a controlled comparison between two GA budgets:
+- `Default`: `pop_size=80`, `n_gen=100`
+- `High-Budget`: `pop_size=160`, `n_gen=200`
+- Ran 36 total experiments on Solomon instances `R101`, `C101`, and `RC101`, at `ind_size=25` and `ind_size=50`, using seeds `11`, `22`, and `33`.
+- Stored the cleaned run-level results in [`labs/week3/ga_vrptw_week3_results.csv`](../labs/week3/ga_vrptw_week3_results.csv).
+- Wrote the Week 3 experiment report in [`docs/week03_experiment_report.md`](week03_experiment_report.md).
+- Main result: the High-Budget configuration improved average cost on all 6 instance-scale settings, but required about `4.5x` to `4.9x` the runtime.
 
 **Challenges & blockers**
 - POMO-TSP and POMO-CVRP are useful learning-based baselines, but the original implementation does not include time windows, battery state, or charging stations.
 - The cloned GA repository is a **VRPTW** solver only, so it cannot be used as an EVRPTW baseline without further modification.
 - Time windows are handled mainly through waiting and delay penalties, rather than a stricter EV feasibility mechanism with battery and charging logic.
 - The result values from POMO and GA are not directly comparable because they use different problem definitions and objective formulations.
+- The cloned GA code exports generation-level CSV files using only parameter names, so repeated runs initially overwrote earlier results until the seed-based rename step was added.
+- The current solver is still VRPTW only. It does not yet model battery state or charging stations, so the Week 3 experiment remains a controlled VRPTW evaluation rather than an EVRP-TW benchmark.
+- The objective is penalty-based, so the reported `Total cost` should be interpreted as a penalized routing cost rather than a strict EV feasibility guarantee.
 
 **Next steps**
 - Use the Week 2 comparison table to explain the difference between learning-based POMO and heuristic GA baselines.
-- Decide whether to implement a minimal `battery` constraint next, likely by modifying `ind2route()` and/or `eval_vrptw()`.
-- Identify which baseline is more suitable as the first extension target toward EVRP-TW: POMO-CVRP with added TW/E constraints, or GA-VRPTW with added battery constraints.
+- Use `docs/week03_experiment_report.md` as the basis for the formal Week 3 submission and meeting discussion.
+- Convert the cleaned summary table into a compact comparison table for slides or poster material.
+- Decide whether to implement a minimal `battery` constraint next, likely by modifying `ind2route()` and/or `eval_vrptw()`, or return to the RL baseline path for EVRP-TW-specific modelling.
 - Continue reporting objective value, feasibility status, constraint violations, and runtime together.
 
-**Hours spent (optional):** ~9h
+**Hours spent (optional):** ~17h
 
 **Links (optional):**
 - Week 2 task brief: [`labs/tasks/week02_works.md`](../labs/tasks/week02_works.md)
+- Week 3 task brief: [`labs/tasks/week03_works.md`](../labs/tasks/week03_works.md)
 - Week 2 comparison: [`docs/week02_method_comparison.md`](week02_method_comparison.md)
 - POMO baseline code: [`labs/week2/pomo/NEW_py_ver`](../labs/week2/pomo/NEW_py_ver)
 - GA baseline code: [`labs/week2/ga_evrptw/gavrptw/core.py`](../labs/week2/ga_evrptw/gavrptw/core.py)
 - GA sample runs: [`labs/week2/ga_evrptw/sample_R101.py`](../labs/week2/ga_evrptw/sample_R101.py), [`labs/week2/ga_evrptw/sample_C204.py`](../labs/week2/ga_evrptw/sample_C204.py)
 - GA result logs: [`labs/week2/ga_evrptw/results/R101_uC8.0_iC60.0_wC0.5_dC1.5_iS25_pS80_cP0.85_mP0.01_nG100.csv`](../labs/week2/ga_evrptw/results/R101_uC8.0_iC60.0_wC0.5_dC1.5_iS25_pS80_cP0.85_mP0.01_nG100.csv), [`labs/week2/ga_evrptw/results/C204_uC8.0_iC100.0_wC1.0_dC1.5_iS100_pS400_cP0.85_mP0.02_nG300.csv`](../labs/week2/ga_evrptw/results/C204_uC8.0_iC100.0_wC1.0_dC1.5_iS100_pS400_cP0.85_mP0.02_nG300.csv)
+- Experiment entrypoint: [`labs/week3/py-ga-VRPTW/run_experiment.py`](../labs/week3/py-ga-VRPTW/run_experiment.py)
+- Cleaned results: [`labs/week3/ga_vrptw_week3_results.csv`](../labs/week3/ga_vrptw_week3_results.csv)
+- Experiment report: [`docs/week03_experiment_report.md`](week03_experiment_report.md)

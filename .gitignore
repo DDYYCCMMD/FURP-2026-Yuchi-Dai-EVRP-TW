@@ -30,6 +30,12 @@ Thumbs.db
 data/
 !**/data/.gitkeep
 
+# Lab baseline clones
+# Keep lab guides and task briefs tracked, but ignore external repositories
+# cloned under labs/weekN/ (for example POMO and py-ga-VRPTW).
+labs/week*/
+!labs/week*/.gitkeep
+
 # Secrets — NEVER commit credentials
 .env
 *.key
