@@ -6,6 +6,8 @@ venv/
 env/
 *.egg-info/
 .ipynb_checkpoints/
+lightning_logs/
+*.tfevents.*
 
 # Node
 node_modules/
@@ -28,6 +30,7 @@ Thumbs.db
 *.ckpt
 *.pth
 data/
+results/mplconfig/
 !**/data/.gitkeep
 
 # Lab baseline clones
@@ -40,3 +43,5 @@ labs/week*/
 .env
 *.key
 secrets.*
+
+docs/superpowers/

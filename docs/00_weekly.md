@@ -157,3 +157,41 @@
 - Experiment entrypoint: [`labs/week3/py-ga-VRPTW/run_experiment.py`](../labs/week3/py-ga-VRPTW/run_experiment.py)
 - Cleaned results: [`labs/week3/ga_vrptw_week3_results.csv`](../labs/week3/ga_vrptw_week3_results.csv)
 - Experiment report: [`docs/week03_experiment_report.md`](week03_experiment_report.md)
+
+---
+
+### Week 4 — 2026-07-09
+
+**Attended this week's meeting:** Yes
+
+**Progress this week**
+- Read Schneider, Stenger & Goeke (2014) in detail and wrote a focused Week 4 note on EVRP-TW formulation, feasibility, VNS/TS, penalty logic, and relevance to the GA baseline.
+- Read Keskin & Catay (2016) and wrote a focused note on partial recharge, ALNS destroy-and-repair, station removal/insertion, and why partial recharge is a future extension rather than an immediate Week 4 implementation target.
+- Cloned a fresh GA-VRPTW baseline into `labs/week4/py-ga-VRPTW` and inspected the original algorithm design.
+- Confirmed the original GA is a VRPTW solver, not an EVRP-TW solver: it has no battery state, charging stations, full recharge, or partial recharge.
+- Extended the GA evaluation output with explicit time-window feasibility metrics: `late_customer_count`, `total_lateness`, `max_lateness`, `waiting_time`, `delay_penalty`, and `strict_time_window_feasible`.
+- Added a reusable Week 4 batch runner and Makefile targets for experiments, figures, and tests.
+- Ran 72 delay-penalty sensitivity experiments over `R101`, `C101`, and `RC101`, with `ind_size=25/50`, seeds `11/22/33`, and `delay_cost=0.0/1.5/5.0/10.0`.
+- Generated three report figures: Solomon instance geometry, penalty trade-off, and instance sensitivity.
+- Wrote the Week 4 extension report in [`docs/week04_extension_report.md`](week04_extension_report.md).
+
+**Challenges & blockers**
+- The GA baseline is useful as a controlled VRPTW foundation, but it cannot be presented as a full EVRP-TW solver.
+- Increasing `delay_cost` reduces total lateness in several settings, but does not guarantee strict time-window feasibility.
+- The current GA lacks repair or local-search mechanisms, which likely limits its ability to remove all lateness.
+
+**Next steps**
+- Add a simple battery-aware evaluator or route-level energy proxy.
+- Study how charging-station insertion could be added as a repair step after customer-route decoding.
+- Consider a staged path from GA-VRPTW to full-recharge GA-EVRPTW before attempting partial recharge.
+
+**Hours spent (optional):** ~18h
+
+**Links (optional):**
+- Schneider note: [`docs/week04_schneider2014_note.md`](week04_schneider2014_note.md)
+- Keskin & Catay note: [`docs/week04_keskin2016_note.md`](week04_keskin2016_note.md)
+- Week 4 report: [`docs/week04_extension_report.md`](week04_extension_report.md)
+- Week 4 GA code: [`labs/week4/py-ga-VRPTW`](../labs/week4/py-ga-VRPTW)
+- Run-level results: [`labs/week4/ga_delay_sensitivity_results.csv`](../labs/week4/ga_delay_sensitivity_results.csv)
+- Aggregated results: [`labs/week4/ga_delay_sensitivity_summary.csv`](../labs/week4/ga_delay_sensitivity_summary.csv)
+- Figures: [`docs/figures/week04`](figures/week04)
