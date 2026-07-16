@@ -195,3 +195,35 @@
 - Run-level results: [`labs/week4/ga_delay_sensitivity_results.csv`](../labs/week4/ga_delay_sensitivity_results.csv)
 - Aggregated results: [`labs/week4/ga_delay_sensitivity_summary.csv`](../labs/week4/ga_delay_sensitivity_summary.csv)
 - Figures: [`docs/figures/week04`](figures/week04)
+
+---
+
+### Week 5 — 2026-07-16
+
+**Attended this week's meeting:** TBD
+
+**Progress this week**
+- Created a fresh Week 5 GA-VRPTW workspace and corrected route-time propagation so waiting time delays subsequent service correctly.
+- Added explicit capacity, customer lateness, depot-return lateness, distance, and strict-feasibility diagnostics.
+- Implemented bounded, duplicate-aware relocate repair; candidates are accepted only when they strictly improve capacity violation, late-customer count, total lateness, maximum lateness, or distance in that order.
+- Added bounded intra-route 2-opt as a second repair stage after relocate, with separate operator-step accounting.
+- Added unit tests for waiting propagation, capacity/depot violations, relocate repair, and 2-opt repair.
+- Added Makefile targets and a batch comparison runner for `penalty_only`, `relocate_repair`, and `relocate_2opt_repair`.
+- Ran 27 controlled experiments on `R101`, `C101`, and `RC101` with 25 customers and seeds `64/65/66`.
+- Wrote [`docs/week05_repair_report.md`](week05_repair_report.md) and generated Week 5 figures.
+
+**Challenges & blockers**
+- Relocate repair substantially reduced lateness, and 2-opt provided further gains on `C101` and `RC101`, but no run achieved strict time-window feasibility.
+- Repair increased runtime from about 0.25 seconds for penalty-only search to about 36--62 seconds per run.
+- The global GA fitness still allows a distance-versus-lateness trade-off, explaining why 2-opt is not uniformly better on R101.
+- The solver remains VRPTW only; battery state and charging decisions are still absent.
+
+**Next steps**
+- Test a feasibility-first global fitness or stronger per-customer infeasibility penalty using the same three-method comparison protocol.
+- Add battery-aware route evaluation only after strict VRPTW feasibility becomes more reliable.
+
+**Links (optional):**
+- Week 5 report: [`docs/week05_repair_report.md`](week05_repair_report.md)
+- Week 5 code and Makefile: [`labs/week5/py-ga-VRPTW`](../labs/week5/py-ga-VRPTW)
+- Week 5 comparison data: [`labs/week5/py-ga-VRPTW/results/week05_repair_comparison.csv`](../labs/week5/py-ga-VRPTW/results/week05_repair_comparison.csv)
+- Figures: [`docs/figures/week05`](figures/week05)

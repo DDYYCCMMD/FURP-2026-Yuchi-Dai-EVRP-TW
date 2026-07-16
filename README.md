@@ -64,9 +64,11 @@ The repository now contains both the mandatory FURP structure and additional res
 | [`docs/week02_method_comparison.md`](docs/week02_method_comparison.md) | Week 2 comparison of POMO and GA baselines |
 | [`docs/week03_experiment_report.md`](docs/week03_experiment_report.md) | Week 3 GA-VRPTW search-budget experiment report |
 | [`docs/week04_extension_report.md`](docs/week04_extension_report.md) | Week 4 feasibility-aware GA-VRPTW extension report |
+| [`docs/week05_repair_report.md`](docs/week05_repair_report.md) | Week 5 repair-aware GA-VRPTW ablation report |
 | [`docs/week04_schneider2014_note.md`](docs/week04_schneider2014_note.md) | Week 4 detailed reading note on Schneider et al. (2014) |
 | [`docs/week04_keskin2016_note.md`](docs/week04_keskin2016_note.md) | Week 4 detailed reading note on Keskin & Catay (2016) |
 | [`docs/figures/week04/`](docs/figures/week04/) | Figures for the Week 4 report |
+| [`docs/figures/week05/`](docs/figures/week05/) | Figures for the Week 5 repair report |
 | [`src/`](src/) | Main project code for EVRP-TW environment, models, training, and evaluation |
 | [`src/envs/`](src/envs/) | Custom EVRP-TW environment implementation |
 | [`src/models/`](src/models/) | Custom EVRP-TW embeddings and model components |
@@ -78,6 +80,7 @@ The repository now contains both the mandatory FURP structure and additional res
 | [`labs/week2/ga_evrptw/`](labs/week2/ga_evrptw/) | Cloned GA-VRPTW baseline repository |
 | `labs/week3/py-ga-VRPTW/` | Week 3 GA-VRPTW experiment workspace |
 | `labs/week4/py-ga-VRPTW/` | Week 4 GA-VRPTW feasibility-diagnostics workspace |
+| `labs/week5/py-ga-VRPTW/` | Week 5 repair-aware GA-VRPTW experiment workspace |
 | [`data/`](data/) | Benchmark datasets, including Schneider EVRPTW instances |
 | [`resource/`](resource/) | Papers and BibTeX references |
 | [`results/`](results/) | Generated experiment summaries and outputs |
@@ -101,12 +104,13 @@ Completed so far:
 - Week 3 GA-VRPTW controlled search-budget experiment completed on Solomon `R101`, `C101`, and `RC101`, with `ind_size=25/50` and repeated seeds.
 - Week 4 reading notes completed for Schneider et al. (2014) and Keskin & Catay (2016), focusing on EVRP-TW feasibility, recharging stations, full recharge, and partial recharge.
 - Week 4 GA-VRPTW feasibility-aware extension completed: explicit `late_customer_count`, `total_lateness`, and `max_lateness` metrics were added, and 72 delay-penalty sensitivity runs were recorded.
+- Week 5 repair-aware GA-VRPTW extension completed: relocate and bounded 2-opt repair were compared with the penalty-only baseline across 27 runs on `R101`, `C101`, and `RC101`.
 - Main EVRP-TW implementation started under [`src/`](src/), including custom environment, embeddings, training, and evaluation scripts.
 
 Next research direction:
 
-- Improve feasibility handling before claiming full EVRP-TW performance: penalty tuning alone reduced lateness but did not guarantee strict time-window feasibility.
-- Add a simple battery-aware route evaluator or energy proxy, then study charging-station insertion / repair as a staged path from GA-VRPTW toward GA-EVRPTW.
+- Improve feasibility handling before claiming full EVRP-TW performance: repair reduces violations substantially, but none of the current Week 5 runs is strictly time-window feasible.
+- Test a feasibility-first global GA fitness before extending the repair pipeline with battery-aware evaluation and charging-station insertion.
 - Continue reporting objective value, feasibility status, constraint violations, and runtime together.
 
 Generated training and experiment artifacts:
