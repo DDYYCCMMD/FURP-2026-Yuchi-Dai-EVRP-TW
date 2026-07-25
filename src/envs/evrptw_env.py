@@ -52,7 +52,7 @@ except ImportError:
         BoundedTensorSpec = UnboundedContinuousTensorSpec = \
             UnboundedDiscreteTensorSpec = CompositeSpec = _Stub
 
-from src.data.generator import EVRPTWGenerator
+from labs.week6.src.data.generator import EVRPTWGenerator
 
 log = get_pylogger(__name__)
 

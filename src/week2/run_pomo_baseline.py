@@ -35,8 +35,8 @@ if str(ROOT) not in sys.path:
 from rl4co.models import POMO  # noqa: E402
 from rl4co.utils import RL4COTrainer  # noqa: E402
 
-from src.envs.evrptw_env import EVRPTWEnv  # noqa: E402
-from src.models.evrptw_embeddings import (  # noqa: E402
+from labs.week6.src.envs.evrptw_env import EVRPTWEnv  # noqa: E402
+from labs.week6.src.models.evrptw_embeddings import (  # noqa: E402
     EVRPTWContextEmbedding,
     EVRPTWInitEmbedding,
 )

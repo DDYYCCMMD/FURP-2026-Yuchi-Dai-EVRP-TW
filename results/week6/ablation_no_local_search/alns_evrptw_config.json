@@ -1,0 +1,67 @@
+{
+  "evaluator": {
+    "feasibility_tolerance": 1e-06,
+    "full_recharge": true,
+    "battery_constraints_enabled": true
+  },
+  "operators": {
+    "removal_min": 1,
+    "removal_max": 3,
+    "removal_fraction": 0.2,
+    "regret_k": 2,
+    "relocate_budget": 20,
+    "two_opt_budget": 20,
+    "local_search_probability": 0.0,
+    "station_repair_max_insertions": 8
+  },
+  "adaptive_weights": {
+    "enabled": true,
+    "initial_weight": 1.0,
+    "segment_length": 50,
+    "reaction_factor": 0.2,
+    "reward_new_best": 5.0,
+    "reward_improved": 3.0,
+    "reward_accepted": 1.0,
+    "reward_neutral": 0.0,
+    "reward_rejected": 0.0,
+    "minimum_weight": 0.001
+  },
+  "simulated_annealing": {
+    "enabled": true,
+    "initial_temperature": 10.0,
+    "cooling_rate": 0.995,
+    "minimum_temperature": 0.01
+  },
+  "experiment": {
+    "data_dir": "/Users/daidaiyuchi/FURP-2026-Yuchi-Dai-EVRP-TW/data/schneider_instances",
+    "output_dir": "/Users/daidaiyuchi/FURP-2026-Yuchi-Dai-EVRP-TW/results/week6/ablation_no_local_search",
+    "instance_names": [
+      "c101C5",
+      "c101C10",
+      "c103C15",
+      "c206C5",
+      "c202C10",
+      "c202C15",
+      "r105C5",
+      "r103C10",
+      "r105C15",
+      "r202C5",
+      "r201C10",
+      "r202C15",
+      "rc105C5",
+      "rc102C10",
+      "rc103C15",
+      "rc204C5",
+      "rc201C10",
+      "rc202C15"
+    ],
+    "seeds": [
+      64,
+      65,
+      66
+    ],
+    "iterations": 1000,
+    "time_limit_s": null,
+    "log_every": 100
+  }
+}

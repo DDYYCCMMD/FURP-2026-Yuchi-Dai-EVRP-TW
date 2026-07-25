@@ -1,0 +1,49 @@
+{
+  "evaluator": {
+    "feasibility_tolerance": 1e-06,
+    "full_recharge": true,
+    "battery_constraints_enabled": true
+  },
+  "operators": {
+    "removal_min": 1,
+    "removal_max": 3,
+    "removal_fraction": 0.2,
+    "regret_k": 2,
+    "relocate_budget": 20,
+    "two_opt_budget": 20,
+    "local_search_probability": 0.2,
+    "station_repair_max_insertions": 8
+  },
+  "adaptive_weights": {
+    "enabled": true,
+    "initial_weight": 1.0,
+    "segment_length": 50,
+    "reaction_factor": 0.2,
+    "reward_new_best": 5.0,
+    "reward_improved": 3.0,
+    "reward_accepted": 1.0,
+    "reward_rejected": 0.0,
+    "minimum_weight": 0.001
+  },
+  "simulated_annealing": {
+    "enabled": true,
+    "initial_temperature": 10.0,
+    "cooling_rate": 0.995,
+    "minimum_temperature": 0.01
+  },
+  "experiment": {
+    "data_dir": "/Users/daidaiyuchi/FURP-2026-Yuchi-Dai-EVRP-TW/data/schneider_instances",
+    "output_dir": "/Users/daidaiyuchi/FURP-2026-Yuchi-Dai-EVRP-TW/results/week6/smoke",
+    "instance_names": [
+      "c101C5",
+      "r105C5",
+      "rc105C5"
+    ],
+    "seeds": [
+      64
+    ],
+    "iterations": 100,
+    "time_limit_s": 20.0,
+    "log_every": 100
+  }
+}

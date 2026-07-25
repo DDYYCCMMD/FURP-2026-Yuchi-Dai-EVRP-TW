@@ -13,10 +13,10 @@ import sys, os
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 
 import torch
-from src.envs.evrptw_env import EVRPTWEnv
-from src.data.generator import EVRPTWGenerator
-from src.data.schneider_loader import load_instance, check_instance
-from src.models.evrptw_embeddings import EVRPTWInitEmbedding, EVRPTWContextEmbedding
+from labs.week6.src.envs.evrptw_env import EVRPTWEnv
+from labs.week6.src.data.generator import EVRPTWGenerator
+from labs.week6.src.data.schneider_loader import load_instance, check_instance
+from labs.week6.src.models.evrptw_embeddings import EVRPTWInitEmbedding, EVRPTWContextEmbedding
 
 PASS = "✓"
 FAIL = "✗"

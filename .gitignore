@@ -38,6 +38,7 @@ results/mplconfig/
 # cloned under labs/weekN/ (for example POMO and py-ga-VRPTW).
 labs/week*/
 !labs/week*/.gitkeep
+!labs/week6/
 
 # Secrets — NEVER commit credentials
 .env

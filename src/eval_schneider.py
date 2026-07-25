@@ -27,9 +27,9 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 
 from rl4co.models import AttentionModel
 
-from src.envs.evrptw_env import EVRPTWEnv, CUSTOMER
-from src.models.evrptw_embeddings import EVRPTWInitEmbedding, EVRPTWContextEmbedding
-from src.data.schneider_loader import load_folder, check_instance
+from labs.week6.src.envs.evrptw_env import EVRPTWEnv, CUSTOMER
+from labs.week6.src.models.evrptw_embeddings import EVRPTWInitEmbedding, EVRPTWContextEmbedding
+from labs.week6.src.data.schneider_loader import load_folder, check_instance
 
 
 def parse_args():

@@ -30,8 +30,8 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 from rl4co.models import AttentionModel
 from rl4co.utils import RL4COTrainer
 
-from src.envs.evrptw_env import EVRPTWEnv
-from src.models.evrptw_embeddings import EVRPTWInitEmbedding, EVRPTWContextEmbedding
+from labs.week6.src.envs.evrptw_env import EVRPTWEnv
+from labs.week6.src.models.evrptw_embeddings import EVRPTWInitEmbedding, EVRPTWContextEmbedding
 
 
 def parse_args():
