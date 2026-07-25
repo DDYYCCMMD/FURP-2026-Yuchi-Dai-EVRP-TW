@@ -99,7 +99,7 @@
 
 ### Week 3 — 2026-06-30
 
-**Attended this week's meeting:** Yes 
+**Attended this week's meeting:** Yes
 
 **Progress this week**
 - Focused on `labs/tasks/week02_works.md`, covering both **Step 1: POMO approach** and **Step 2: GA approach**.
@@ -227,3 +227,43 @@
 - Week 5 code and Makefile: [`labs/week5/py-ga-VRPTW`](../labs/week5/py-ga-VRPTW)
 - Week 5 comparison data: [`labs/week5/py-ga-VRPTW/results/week05_repair_comparison.csv`](../labs/week5/py-ga-VRPTW/results/week05_repair_comparison.csv)
 - Figures: [`docs/figures/week05`](figures/week05)
+
+---
+
+### Week 6 — 2026-07-25
+
+**Attended this week's meeting:** TBD
+
+**Progress this week**
+- Created an independent Week 6 workspace under [`labs/week6`](../labs/week6) instead of continuing to modify the Week 5 GA.
+- Implemented a raw-unit Schneider loader and one evaluator for customer coverage, route structure, capacity, time windows, energy, minimum battery, charging time, and strict feasibility.
+- Implemented deterministic feasible construction, random/worst/related removal, greedy/regret-2 insertion, full-recharge station insertion, relocate, and intra-route 2-opt.
+- Added feasibility-first SA acceptance and segment-based adaptive destroy/repair weights, with neutral and accepted-worse moves recorded separately.
+- Added 15 tests covering configuration, instance loading, evaluator behavior, battery sufficiency/failure, charging repair, SA, adaptive weights, and end-to-end customer preservation.
+- Ran the fixed-iteration formal comparison on 18 Schneider instances and seeds `64/65/66`: ALNS-VRPTW, full ALNS-EVRPTW, no adaptive weights, no SA, and no local search, for 270 runs in total.
+- Re-evaluated every saved formal route. All 216 battery-enabled runs are strictly feasible and no saved metric differs from the unified evaluator recomputation.
+- Produced a formula-driven analysis workbook, five summary CSVs, eight report figures, and [`docs/week06_alns_evrptw_report.md`](week06_alns_evrptw_report.md).
+
+**Main findings**
+- EVRPTW uses more vehicles in 28 of 54 matched VRPTW comparisons and never uses fewer.
+- Among 26 equal-vehicle pairs, EVRPTW distance is longer in 23 and shorter in 3; the mean EV-minus-VR distance difference is `+12.419`.
+- EV/VR runtime grows from `5.65x` at 5 customers to `20.22x` at 15 customers.
+- Local search has the clearest ablation effect: the full method wins 7, ties 45, and loses 2 matched runs, while removing local search reduces runtime by 47.3%.
+- Full EVRPTW spends 95.6% of iterations on neutral moves, identifying search diversity as the next bottleneck.
+
+**Challenges & blockers**
+- Charging-station repair and repeated full route evaluation make the 15-customer EVRPTW runs substantially slower.
+- Small instances often retain the deterministic initial objective, producing many ties and low cross-seed diversity.
+- Partial charging, station-removal neighborhoods, and larger benchmark validation remain outside the current implementation.
+
+**Next steps**
+- Freeze the current fixed-1000-iteration results as the Week 6 full-recharge baseline.
+- Test station removal/reposition or an energy-aware destroy operator as one isolated extension.
+- Move to larger Schneider instances before implementing partial charging.
+
+**Links (optional):**
+- Week 6 report: [`docs/week06_alns_evrptw_report.md`](week06_alns_evrptw_report.md)
+- Week 6 code and README: [`labs/week6`](../labs/week6)
+- Formal results: [`results/week6/main_fixed1000`](../results/week6/main_fixed1000)
+- Analysis workbook and summaries: [`outputs/week6_analysis_20260725`](../outputs/week6_analysis_20260725)
+- Figures: [`docs/figures/week06`](figures/week06)
