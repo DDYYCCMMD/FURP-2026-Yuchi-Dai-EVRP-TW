@@ -1,4 +1,4 @@
-# FURP 2026 — Deep RL for EVRP-TW
+# Summer Research Project 2026 — Full-Recharge ALNS for EVRP-TW
 
 > **Faculty Undergraduate Research Practice (FURP)**
 > Undergraduate Research Group · Faculty of Science and Engineering · University of Nottingham Ningbo China
@@ -10,15 +10,31 @@
 | Field | Your entry |
 |---|---|
 | Student name(s) | Yuchi Dai |
-| Project title | Deep RL for Electric Vehicle Routing with Time Windows |
+| Project title | A Feasibility-First Full-Recharge ALNS for Electric Vehicle Routing with Time Windows |
 | Project tag | EVRP-TW |
 | Track | Research |
-| Supervising faculty | _(TBD)_ |
-| Project lead | _(TBD)_ |
+| Supervising faculty | Tianxiang Cui |
 | Team or individual | Individual |
-| Cited paper being replicated | Lin, Ghaddar & Nathwani (2021). Deep Reinforcement Learning for Electric Vehicle Routing Problem with Time Windows. *IEEE TITS*. DOI: [10.1109/TITS.2021.3105232](https://doi.org/10.1109/TITS.2021.3105232) |
+| Initial research reference | Lin, Ghaddar & Nathwani (2021). Deep Reinforcement Learning for Electric Vehicle Routing Problem with Time Windows. *IEEE TITS*. DOI: [10.1109/TITS.2021.3105232](https://doi.org/10.1109/TITS.2021.3105232) |
+| Final implementation focus | Method-level ALNS adaptation using the full-recharge EVRPTW assumptions of Schneider, Stenger & Goeke (2014), informed by Keskin & Catay (2016) |
 
-**One-line summary:** Reproducing and extending a deep reinforcement learning approach to the Electric Vehicle Routing Problem with Time Windows (EVRP-TW), with at least 10% innovation on top of the replicated baseline.
+**One-line summary:** Developing and evaluating a feasibility-first ALNS solver for the full-recharge Electric Vehicle Routing Problem with Time Windows, with explicit capacity, time-window, battery, and charging-station checks.
+
+The project began with a deep-reinforcement-learning reproduction plan. After
+baseline work exposed missing EVRP-TW feasibility support, the final summer
+scope shifted to a route-based ALNS implementation that could be audited and
+evaluated end to end. The final claim is a verified method-level adaptation,
+not a complete numerical reproduction of Lin et al. (2021) or Keskin and Catay
+(2016).
+
+## Final Summer Report
+
+The completed summer-project report is available here:
+
+- **[`FINAL_SUMMER_REPORT.md`](FINAL_SUMMER_REPORT.md)** — final project scope,
+  method, experiments, results, limitations, and reproducibility evidence.
+- [`docs/week06_alns_evrptw_report.md`](docs/week06_alns_evrptw_report.md) —
+  detailed Week 6 technical report supporting the final report.
 
 ---
 
@@ -26,11 +42,15 @@
 
 If you are reading this repository for the first time:
 
-1. Read this `README.md` for the project goal and mandatory FURP requirements.
-2. Read [`docs/00_weekly.md`](docs/00_weekly.md) for the latest progress.
-3. Read [`labs/README.md`](labs/README.md) before working with lab tasks or cloned baseline repositories.
-4. Read [`src/README.md`](src/README.md) before running or extending the main EVRP-TW code.
-5. For weekly lab work, keep exploratory code under `labs/`. Do not write into `src/` unless the change is intended for the final EVRP-TW reproduction implementation.
+1. Read [`FINAL_SUMMER_REPORT.md`](FINAL_SUMMER_REPORT.md) for the completed
+   project, main results, limitations, and evidence.
+2. Read this `README.md` for the repository structure and project history.
+3. Read [`docs/00_weekly.md`](docs/00_weekly.md) for the chronological progress
+   record.
+4. Read [`labs/week6/README.md`](labs/week6/README.md) to run or inspect the
+   final full-recharge ALNS-EVRPTW implementation.
+5. Read [`src/README.md`](src/README.md) for the earlier learning-based
+   EVRP-TW development path.
 
 ---
 
@@ -59,6 +79,7 @@ The repository now contains both the mandatory FURP structure and additional res
 
 | Path | Purpose |
 |---|---|
+| [`FINAL_SUMMER_REPORT.md`](FINAL_SUMMER_REPORT.md) | Complete final summer-project report and primary submission record |
 | [`docs/`](docs/) | Research logs, reading notes, meeting notes, experiment reports, and result summaries |
 | [`docs/00_weekly.md`](docs/00_weekly.md) | Weekly progress log; update every week |
 | [`docs/week02_method_comparison.md`](docs/week02_method_comparison.md) | Week 2 comparison of POMO and GA baselines |
@@ -74,22 +95,13 @@ The repository now contains both the mandatory FURP structure and additional res
 | [`src/`](src/) | Main project code for EVRP-TW environment, models, training, and evaluation |
 | [`src/envs/`](src/envs/) | Custom EVRP-TW environment implementation |
 | [`src/models/`](src/models/) | Custom EVRP-TW embeddings and model components |
-| [`src/data/`](src/data/) | Dataset generators and loaders |
 | [`labs/`](labs/) | Weekly lab tasks and cloned external baseline repositories |
 | [`labs/README.md`](labs/README.md) | Guide for using `labs/` and recording experiment reports in `docs/` |
 | [`labs/tasks/`](labs/tasks/) | Weekly task briefs |
-| [`labs/week2/pomo/`](labs/week2/pomo/) | Cloned POMO baseline repository |
-| [`labs/week2/ga_evrptw/`](labs/week2/ga_evrptw/) | Cloned GA-VRPTW baseline repository |
-| `labs/week3/py-ga-VRPTW/` | Week 3 GA-VRPTW experiment workspace |
-| `labs/week4/py-ga-VRPTW/` | Week 4 GA-VRPTW feasibility-diagnostics workspace |
-| `labs/week5/py-ga-VRPTW/` | Week 5 repair-aware GA-VRPTW experiment workspace |
 | [`labs/week6/`](labs/week6/) | Full-recharge ALNS-EVRPTW implementation, tests, and experiment runners |
-| [`data/`](data/) | Benchmark datasets, including Schneider EVRPTW instances |
+| [Schneider EVRPTW benchmark](https://data.mendeley.com/datasets/h3mrm5dhxw/1) | External benchmark data used by the final experiments; download locally into `data/schneider_instances/` |
 | [`resource/`](resource/) | Papers and BibTeX references |
 | [`results/`](results/) | Generated experiment summaries and outputs |
-| [`checklists/`](checklists/) | Milestone checklists |
-| [`poster/`](poster/) | Poster source materials before final export |
-| [`assets/`](assets/) | Images, diagrams, and other static assets |
 
 After completing an experiment, write the final summary in `docs/`, not only in terminal output or raw result files.
 
@@ -101,7 +113,8 @@ Completed so far:
 
 - Environment setup and initial smoke tests for RL4CO and PyVRP.
 - Literature collection and reading notes for EVRP-TW, Attention Model, POMO, and related VRP methods.
-- Schneider EVRPTW benchmark instances placed under [`data/schneider_instances/`](data/schneider_instances/).
+- Schneider EVRPTW benchmark instances used locally from the published
+  [Mendeley Data record](https://data.mendeley.com/datasets/h3mrm5dhxw/1).
 - Week 2 baseline recreation completed for the original POMO repository on `TSP20`, `TSP100`, and `CVRP100`.
 - Week 2 GA-VRPTW baseline recreation completed on Solomon `R101` and `C204`.
 - Week 3 GA-VRPTW controlled search-budget experiment completed on Solomon `R101`, `C101`, and `RC101`, with `ind_size=25/50` and repeated seeds.
