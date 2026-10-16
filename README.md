@@ -38,7 +38,7 @@ The completed summer-project report is available here:
 
 ## Research Showcase Poster
 
-- **[`FURP_Showcase.pdf`](FURP_Showcase.pdf)** — reviewed A0 poster for the
+- **[`FURP_Showcase.pdf`](FURP_Showcase.pdf)** — reviewed A1 portrait poster for the
   2026 FoSE Research Showcase.
 - [`poster/poster.tex`](poster/poster.tex) — editable LaTeX source.
 - [`poster/PRESENTATION_SCRIPT.md`](poster/PRESENTATION_SCRIPT.md) — three-minute
@@ -92,7 +92,7 @@ The repository now contains both the mandatory FURP structure and additional res
 | Path | Purpose |
 |---|---|
 | [`FINAL_SUMMER_REPORT.md`](FINAL_SUMMER_REPORT.md) | Complete final summer-project report and primary submission record |
-| [`FURP_Showcase.pdf`](FURP_Showcase.pdf) | A0 Research Showcase poster |
+| [`FURP_Showcase.pdf`](FURP_Showcase.pdf) | A1 portrait Research Showcase poster |
 | [`poster/`](poster/) | Editable poster source, Nottingham theme assets, and presentation script |
 | [`docs/`](docs/) | Research logs, reading notes, meeting notes, experiment reports, and result summaries |
 | [`docs/00_weekly.md`](docs/00_weekly.md) | Weekly progress log; update every week |
