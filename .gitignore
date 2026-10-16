@@ -46,3 +46,23 @@ labs/week*/
 secrets.*
 
 docs/superpowers/
+
+# LaTeX and poster build artefacts
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.nav
+*.out
+*.run.xml
+*.snm
+*.synctex.gz
+*.toc
+*.xdv
+_minted-*/
+/poster/poster.pdf
+/output/
+/tmp/

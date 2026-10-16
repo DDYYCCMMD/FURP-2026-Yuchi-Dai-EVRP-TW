@@ -36,6 +36,15 @@ The completed summer-project report is available here:
 - [`docs/week06_alns_evrptw_report.md`](docs/week06_alns_evrptw_report.md) —
   detailed Week 6 technical report supporting the final report.
 
+## Research Showcase Poster
+
+- **[`FURP_Showcase.pdf`](FURP_Showcase.pdf)** — reviewed A0 poster for the
+  2026 FoSE Research Showcase.
+- [`poster/poster.tex`](poster/poster.tex) — editable LaTeX source.
+- [`poster/PRESENTATION_SCRIPT.md`](poster/PRESENTATION_SCRIPT.md) — three-minute
+  and one-minute presentation scripts, likely questions, and a Chinese memory
+  outline.
+
 ---
 
 ## Start Here
@@ -44,12 +53,15 @@ If you are reading this repository for the first time:
 
 1. Read [`FINAL_SUMMER_REPORT.md`](FINAL_SUMMER_REPORT.md) for the completed
    project, main results, limitations, and evidence.
-2. Read this `README.md` for the repository structure and project history.
-3. Read [`docs/00_weekly.md`](docs/00_weekly.md) for the chronological progress
+2. View [`FURP_Showcase.pdf`](FURP_Showcase.pdf) for the research-showcase
+   summary and use [`poster/PRESENTATION_SCRIPT.md`](poster/PRESENTATION_SCRIPT.md)
+   for the accompanying presentation.
+3. Read this `README.md` for the repository structure and project history.
+4. Read [`docs/00_weekly.md`](docs/00_weekly.md) for the chronological progress
    record.
-4. Read [`labs/week6/README.md`](labs/week6/README.md) to run or inspect the
+5. Read [`labs/week6/README.md`](labs/week6/README.md) to run or inspect the
    final full-recharge ALNS-EVRPTW implementation.
-5. Read [`src/README.md`](src/README.md) for the earlier learning-based
+6. Read [`src/README.md`](src/README.md) for the earlier learning-based
    EVRP-TW development path.
 
 ---
@@ -80,6 +92,8 @@ The repository now contains both the mandatory FURP structure and additional res
 | Path | Purpose |
 |---|---|
 | [`FINAL_SUMMER_REPORT.md`](FINAL_SUMMER_REPORT.md) | Complete final summer-project report and primary submission record |
+| [`FURP_Showcase.pdf`](FURP_Showcase.pdf) | A0 Research Showcase poster |
+| [`poster/`](poster/) | Editable poster source, Nottingham theme assets, and presentation script |
 | [`docs/`](docs/) | Research logs, reading notes, meeting notes, experiment reports, and result summaries |
 | [`docs/00_weekly.md`](docs/00_weekly.md) | Weekly progress log; update every week |
 | [`docs/week02_method_comparison.md`](docs/week02_method_comparison.md) | Week 2 comparison of POMO and GA baselines |
@@ -184,7 +198,7 @@ Any **leave of absence** or **withdrawal** must be notified to us **by email** �
 - [x] Filled in the *Project Info* table above
 - [x] Started `docs/00_weekly.md`
 - [x] Created my first file in `docs/meeting_notes/`
-- [ ] (By Showcase) Added `FURP_Showcase.pdf` to the repo root
+- [x] (By Showcase) Added `FURP_Showcase.pdf` to the repo root
 
 ---
 
